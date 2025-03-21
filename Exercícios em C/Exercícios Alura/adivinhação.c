@@ -17,6 +17,7 @@ for (int i = 1; i <= 3; i= i +1)
     if (chute==secreto){
        
         printf("PARABÉNS, VOCÊ ACERTOU!!! (O NÚMERO SECRETO ERA 42)\n");
+        break;
 
     }
     else {
@@ -30,7 +31,9 @@ for (int i = 1; i <= 3; i= i +1)
         }
         
         printf("Você errou!! Tente novamente!\n");
+        printf("TENTATIVA %d DE 3\n", i);
     }
 
 }
+printf("JOGO ENCERRADO!");
 }
