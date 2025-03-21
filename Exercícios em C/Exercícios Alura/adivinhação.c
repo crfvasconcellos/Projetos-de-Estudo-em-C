@@ -7,6 +7,8 @@ int main(){
 
     int secreto= 42;
     int chute;
+for (int i = 0; i <= 3; i= i +1)
+{
 
     printf("Chute um número: \n");
     scanf("%d",&chute);
@@ -30,4 +32,5 @@ int main(){
         printf("Você errou!! Tente novamente!\n");
     }
 
+}
 }
