@@ -7,7 +7,7 @@ int main(){
 
     int secreto= 42;
     int chute;
-for (int i = 0; i <= 3; i= i +1)
+for (int i = 1; i <= 3; i= i +1)
 {
 
     printf("Chute um número: \n");
