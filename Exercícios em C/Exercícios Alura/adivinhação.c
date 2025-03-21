@@ -10,6 +10,15 @@ int main(){
 
     printf("Chute um número: \n");
     scanf("%d",&chute);
-    printf("Você chutou %d ", chute)
+    printf("Você chutou %d \n", chute);
+
+    if (chute==secreto){
+       
+        printf("PARABÉNS, VOCÊ ACERTOU!!! (O NÚMERO SECRETO ERA 42)\n");
+
+    }
+    else {
+        printf("Você errou!!");
+    }
 
 }
