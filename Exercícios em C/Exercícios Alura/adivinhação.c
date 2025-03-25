@@ -11,7 +11,7 @@ int main(){
     int chute;
     int ganhou = 0;
     int i = 0; //tentativas
-    int pontuacao= 1000;
+    double pontuacao= 1000;
     
 
 while (ganhou==0){
@@ -33,7 +33,7 @@ while (ganhou==0){
 
     }
     else {
-        int diferenca=0;
+        double diferenca=0;
         if (chute>secreto)
         {
             printf("Seu chute foi maior que o número secreto!\n");
@@ -53,5 +53,5 @@ while (ganhou==0){
 }
 printf("JOGO ENCERRADO!\n");
 printf("VOCÊ TERMINOU COM %d TENTATIVAS! \n",i);
-printf("VOCÊ OBTEVE A PONTUAÇÃO %d DE 1000 !", pontuacao);
+printf("VOCÊ OBTEVE A PONTUAÇÃO %.1f DE 1000 !", pontuacao);
 }
