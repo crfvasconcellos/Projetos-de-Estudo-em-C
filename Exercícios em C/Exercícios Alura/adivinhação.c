@@ -9,10 +9,11 @@ int main(){
 
     int secreto= 42;
     int chute;
+    int ganhou = 0;
+    int i = 0; //tentativas
 
-for (int i = 1; i <= TENTATIVAS; i= i +1)
-{
-
+while (ganhou==0){
+    i= i + 1;
     printf("Chute um número: \n");
     scanf("%d",&chute);
     printf("Você chutou %d \n", chute);
@@ -40,9 +41,10 @@ for (int i = 1; i <= TENTATIVAS; i= i +1)
         }
         
         printf("Você errou!! Tente novamente!\n");
-        printf("TENTATIVA %d DE %d\n", i,TENTATIVAS);
+        printf("TENTATIVA %d !\n", i);
     }
 
 }
-printf("JOGO ENCERRADO!");
+printf("JOGO ENCERRADO!\n");
+printf("VOCÊ TERMINOU COM %d TENTATIVAS!",i);
 }
