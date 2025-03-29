@@ -15,7 +15,7 @@ int main() {
     }
     else if (idade>=16 && idade<18)
     {
-        printf("Você é um eleitor Opicional!");
+        printf("Você é um eleitor Opcional!");
     }
     else if (idade>=18)
     {
