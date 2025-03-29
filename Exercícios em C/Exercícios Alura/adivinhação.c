@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>>
 
 #define TENTATIVAS 5
 
@@ -7,7 +9,12 @@ int main(){
     printf("BEM VINDO AO JOGO DE ADIVINHAÇÃO!!\n");
     printf("**************************************\n");
 
-    int secreto= 42;
+    int x = time(0);
+    srand(x);
+    int aleatorio= rand();
+    
+    
+    int secreto= aleatorio % 100;
     int chute;
     int ganhou = 0;
     int i = 0; //tentativas
@@ -28,7 +35,7 @@ while (ganhou==0){
 
     if (chute==secreto){
        
-        printf("PARABÉNS, VOCÊ ACERTOU!!! (O NÚMERO SECRETO ERA 42)\n");
+        printf("PARABÉNS, VOCÊ ACERTOU!!! (O NÚMERO SECRETO ERA %d)\n",secreto);
         break;
 
     }
