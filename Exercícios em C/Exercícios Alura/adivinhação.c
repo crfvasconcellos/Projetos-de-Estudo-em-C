@@ -6,7 +6,14 @@
 
 int main(){
     printf("**************************************\n");
-    printf("BEM VINDO AO JOGO DE ADIVINHAÇÃO!!\n");
+    printf("                 P  /_\\  P                             \n");
+    printf("                /_\\_|_|_/_\\                           \n");
+    printf("            n_n | ||. .|| | n_n         Bem vindo ao    \n");
+    printf("            |_|_|nnnn nnnn|_|_|     Jogo de Adivinhação!\n");
+    printf("           |" "  |  |_|  |"  " |                        \n");
+    printf("           |_____| ' _ ' |_____|                        \n");
+    printf("                 \\__|_|__/                             \n");            
+
     printf("**************************************\n");
 
     int nivel,nt,pts=0; //conta os níveis de desafio e mostra os pontos só se ganhar
