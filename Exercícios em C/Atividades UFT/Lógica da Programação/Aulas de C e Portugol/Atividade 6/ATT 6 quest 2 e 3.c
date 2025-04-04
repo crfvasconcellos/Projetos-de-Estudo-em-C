@@ -5,7 +5,7 @@
 
 int main() {
 
-int count=0, idade;
+int count=0, idade,med,soma=0;
 char resp = 's';
 
 while (resp!='n')
@@ -14,6 +14,7 @@ while (resp!='n')
     scanf("%d",&idade);
     
     count++;
+    soma= soma + idade;
 
     if (idade>=18)
     {
@@ -30,7 +31,10 @@ while (resp!='n')
     idade=0;
 }
 
+
+med= soma/count;
 printf("Foram processadas %d idades!! \n",count);
+printf("A média das idades foi: %d \n",med);
 
 printf("Programa encerrado!");
 return 0;
