@@ -15,20 +15,23 @@ int main () {
      
     
      int count=0;
-     int qtd[num_max],tipo[num_max],contmarce,contlimpe,contpere,totaltipo; //tipo 1 - marcearia, 2 - limpeza, -3 perecíveis*/
+     int qtd[num_max],tipo[num_max],nmenor6=0; //tipo 1 - marcearia, 2 - limpeza, -3 perecíveis*/
      char nome[num_max] [20];
-     float preco[num_max],estoqval[34];
+     float preco[num_max],estoqval[34],contmarce,contlimpe,contpere,totaltipo,nmaior;
 
-    for(int i=0;i<=34;i++){
+
+    for(int i=0;i<34;i++){
         count=0;
         estoqval[i]=0;
+        preco[count]=0;
         
         
 
         printf("\n-------- %dº FILIAL -------- \n",i+1);
 
-        while (preco[i] != -1 || count == 100)
+        while (1)
         {
+            
             int veri1=0;
             printf("Nome do %dº produto da %dº Filial : ",count+1,i+1);
             scanf(" %s",nome[count]);
@@ -36,6 +39,11 @@ int main () {
             printf("Qual é o preço do produto? (-1 para encerrar a lista) R$ ");
             scanf("%f",&preco[count]);
 
+            if (count==0 || preco[count]>nmaior)
+            {
+                nmaior=preco[count];
+            }
+            
             if (preco[count]==-1)
             {
                 break;
@@ -79,16 +87,33 @@ int main () {
 
         
         printf ("O valor total do estoque da %dº Filial é %.2f",i+1,estoqval[i]);
-
-
+        if (estoqval[i] <60000)
+        {
+            nmenor6++;
+        }
+        
 
     }
 
     totaltipo= contlimpe + contmarce + contpere;
+
+    if (totaltipo==0)
+    {
+        printf("\nNenhum produto foi inserido, então não há percentuais de tipos.\n");
+    }
+
+    else{
     contlimpe= (contlimpe/totaltipo) * 100;
     contmarce= (contmarce/totaltipo) * 100;
     contpere= (contpere/totaltipo) * 100; 
+         }
 
-    printf("\nDe todas as Filiais, %d %% dos produtos são referentes à marcearia \n %d %% dos produtos são referentes à limpeza \n e %d %% dos produtos são referentes à perecíveis\n",contmarce,contlimpe,contpere );
+    printf("\nDe todas as Filiais, %.2f %% dos produtos são referentes à marcearia \n %.2f %% dos produtos são referentes à limpeza \n e %.2f %% dos produtos são referentes à perecíveis\n",contmarce,contlimpe,contpere );
+
+    printf("\n O maior valor de todos os produtos é R$ %f  ",nmaior);
+
+    printf("\nCerca de %d filiais possuem um estoque menor que R$60.000\n",nmenor6);
+
+    return 0;
 
 }
