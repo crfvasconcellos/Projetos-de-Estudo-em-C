@@ -15,7 +15,7 @@ int main () {
      
     
      int count=0;
-     int qtd[num_max],tipo[num_max]; //tipo 1 - marcearia, 2 - limpeza, -3 perecíveis*/
+     int qtd[num_max],tipo[num_max],contmarce,contlimpe,contpere,totaltipo; //tipo 1 - marcearia, 2 - limpeza, -3 perecíveis*/
      char nome[num_max] [20];
      float preco[num_max],estoqval[34];
 
@@ -23,11 +23,13 @@ int main () {
         count=0;
         estoqval[i]=0;
         
+        
 
         printf("\n-------- %dº FILIAL -------- \n",i+1);
 
         while (preco[i] != -1 || count == 100)
         {
+            int veri1=0;
             printf("Nome do %dº produto da %dº Filial : ",count+1,i+1);
             scanf(" %s",nome[count]);
             
@@ -39,9 +41,32 @@ int main () {
                 break;
             }
             
-
-            printf("\nQual é o tipo de produto? \n [1] mercearia \n [2] limpeza \n [3] Perecíveis \n R: ");
-            scanf("%d",&tipo[count]);
+            while (veri1==0)
+            {
+                printf("\nQual é o tipo de produto? \n [1] mercearia \n [2] limpeza \n [3] Perecíveis \n R: ");
+                scanf("%d",&tipo[count]);
+    
+                if (tipo[count]==1)
+                {
+                    contmarce++;
+                    veri1=1;
+                }
+                else if (tipo[count]==2)
+                {
+                    contlimpe++;
+                    veri1=1;
+                }
+                else if (tipo[count]==3)
+                {
+                    contpere++;
+                    veri1=1;
+                }
+    
+                else{
+                    printf("Valor inválido, insira novamente");
+                }
+                
+            }
 
             printf("\n Qual é a quantidade do estoque? R: ");
             scanf("%d",&qtd[count]);
@@ -59,6 +84,11 @@ int main () {
 
     }
 
+    totaltipo= contlimpe + contmarce + contpere;
+    contlimpe= (contlimpe/totaltipo) * 100;
+    contmarce= (contmarce/totaltipo) * 100;
+    contpere= (contpere/totaltipo) * 100; 
 
+    printf("\nDe todas as Filiais, %d %% dos produtos são referentes à marcearia \n %d %% dos produtos são referentes à limpeza \n e %d %% dos produtos são referentes à perecíveis\n",contmarce,contlimpe,contpere );
 
 }
