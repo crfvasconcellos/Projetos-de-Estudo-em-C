@@ -8,6 +8,15 @@ void abertura()
     printf("******* \n");
 }
 
+void chuta(char x,char y,int z) 
+{
+		printf("Qual letra? ");
+		scanf(" %c", &x);
+
+        y = x;
+		z++;
+}
+
 int main() {
 
 	char palavrasecreta[20];
@@ -50,12 +59,9 @@ int main() {
 
 		printf("\n");
 
-		char chute;
-		printf("Qual letra? ");
-		scanf(" %c", &chute);
-
-		chutes[tentativas] = chute;
-		tentativas++;
+		
+        char chute;
+        chuta(chute,chutes[tentativas],tentativas);
 
 
 	} while (!acertou && !enforcou);
