@@ -8,15 +8,6 @@ void abertura()
     printf("******* \n");
 }
 
-void chuta(char x,char y,int z) 
-{
-		printf("Qual letra? ");
-		scanf(" %c", &x);
-
-        y = x;
-		z++;
-}
-
 int main() {
 
 	char palavrasecreta[20];
@@ -37,31 +28,27 @@ int main() {
         {
 			int achou = 0;
 
-			for(int j = 0; j < tentativas; j++) 
-            {
-				if(chutes[j] == palavrasecreta[i]) 
-                {
+			for(int j = 0; j < tentativas; j++) {
+				if(chutes[j] == palavrasecreta[i]) {
 					achou = 1;
 					break;
 				}
 			}
 
-			if(achou) 
-            {
+			if(achou) {
 				printf("%c ", palavrasecreta[i]);
-			} 
-            
-            else 
-            {
+			} else {
 				printf("_ ");
 			}
 		}
-
 		printf("\n");
 
-		
-        char chute;
-        chuta(chute,chutes[tentativas],tentativas);
+		char chute;
+		printf("Qual letra? ");
+		scanf(" %c", &chute);
+
+		chutes[tentativas] = chute;
+		tentativas++;
 
 
 	} while (!acertou && !enforcou);
