@@ -3,7 +3,7 @@
 
 void abertura() 
 {
-    printf("\n*******");
+    printf("\n *******");
     printf("\n JOGO DA FORCA \n");
     printf("******* \n");
 }
@@ -24,22 +24,30 @@ int main() {
 
 	do {
 		
-		for(size_t i = 0; i < strlen(palavrasecreta); i++) {
+		for(size_t i = 0; i < strlen(palavrasecreta); i++) 
+        {
 			int achou = 0;
 
-			for(int j = 0; j < tentativas; j++) {
-				if(chutes[j] == palavrasecreta[i]) {
+			for(int j = 0; j < tentativas; j++) 
+            {
+				if(chutes[j] == palavrasecreta[i]) 
+                {
 					achou = 1;
 					break;
 				}
 			}
 
-			if(achou) {
+			if(achou) 
+            {
 				printf("%c ", palavrasecreta[i]);
-			} else {
+			} 
+            
+            else 
+            {
 				printf("_ ");
 			}
 		}
+
 		printf("\n");
 
 		char chute;
