@@ -11,12 +11,13 @@ void abertura() {
     printf("/****************/\n\n");
 }
 
-void chuta() {
+void chuta(char* lista,int* contador,int contadorseme) {
     char chute;
     printf("Qual letra? ");
     scanf(" %c", &chute);
 
-    chutes[tentativas] = chute;
+    lista[contadorseme] = chute;
+    (*contador)++;
 }
 
 int jachutou(char letra) {
@@ -36,7 +37,7 @@ void desenhaforca() {
 
     printf("Você já deu %d chutes\n", tentativas);
 
-    for(int i = 0; i < strlen(palavrasecreta); i++) {
+    for(size_t i = 0; i < strlen(palavrasecreta); i++) {
 
         if(jachutou(palavrasecreta[i])) {
             printf("%c ", palavrasecreta[i]);
@@ -65,9 +66,9 @@ int main() {
     do {
 
         desenhaforca();
-        chuta();
+        chuta(chutes,&tentativas,tentativas);
 
-        tentativas++;
+        
 
     } while (!acertou && !enforcou);
 
