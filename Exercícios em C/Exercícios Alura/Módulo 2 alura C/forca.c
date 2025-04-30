@@ -83,15 +83,24 @@ int contadordefalhas(){
     
 }
 
+int ganhou(){
+    for (size_t i = 0; i < strlen(palavrasecreta); i++)
+    {
+        if (!jachutou(palavrasecreta[i]))
+        {
+           return 0;
+        }
+    }
+    
+    return 1;
+}
+
 void finalizacao (){
     printf("\n Jogo FInalizado com Sucesso! ");
     
 }
 
 int main() {
-
-    int acertou = 0;
-    
 
     abertura();
     escolhepalavra();
@@ -103,7 +112,7 @@ int main() {
 
         
 
-    } while (!acertou && !contadordefalhas());
+    } while (!ganhou() && !contadordefalhas());
 
     finalizacao();
 
