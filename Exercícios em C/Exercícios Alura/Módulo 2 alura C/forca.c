@@ -3,7 +3,7 @@
 
 char palavrasecreta[20];
 char chutes[26];
-int tentativas = 0;
+int chutesdados = 0;
 
 void abertura() {
     printf("/****************/\n");
@@ -16,13 +16,13 @@ void chuta() {
     printf("Qual letra? ");
     scanf(" %c", &chute);
 
-    chutes[tentativas] = chute;
-    tentativas++;
+    chutes[chutesdados] = chute;
+    chutesdados++;
 }
 
 int jachutou(char letra) {
     int achou = 0;
-    for(int j = 0; j < tentativas; j++) {
+    for(int j = 0; j < chutesdados; j++) {
         if(chutes[j] == letra) {
             achou = 1;
             break;
@@ -35,7 +35,7 @@ int jachutou(char letra) {
 
 void desenhaforca() {
 
-    printf("Você já deu %d chutes\n", tentativas);
+    printf("Você já deu %d chutes\n", chutesdados);
 
     for(size_t i = 0; i < strlen(palavrasecreta); i++) {
 
@@ -59,10 +59,10 @@ int contadordefalhas(){
 
     int erros=0;
 
-    for (int i = 0; i < tentativas; i++)
+    for (int i = 0; i < chutesdados; i++)
     {
         int existe=0;
-        for (int j = 0; j < strlen(palavrasecreta); j++)
+        for (size_t j = 0; j < strlen(palavrasecreta); j++)
         {
             if (chutes[i]== palavrasecreta[j])
             {
@@ -83,7 +83,7 @@ int contadordefalhas(){
     
 }
 
-void finalização (){
+void finalizacao (){
     printf("\n Jogo FInalizado com Sucesso! ");
     
 }
@@ -105,6 +105,6 @@ int main() {
 
     } while (!acertou && !contadordefalhas());
 
-    finalização();
+    finalizacao();
 
 }
