@@ -11,13 +11,13 @@ void abertura() {
     printf("/****************/\n\n");
 }
 
-void chuta(char* lista,int* contador,int contadorseme) {
+void chuta() {
     char chute;
     printf("Qual letra? ");
     scanf(" %c", &chute);
 
-    lista[contadorseme] = chute;
-    (*contador)++;
+    chutes[tentativas] = chute;
+    tentativas++;
 }
 
 int jachutou(char letra) {
@@ -66,7 +66,7 @@ int main() {
     do {
 
         desenhaforca();
-        chuta(chutes,&tentativas,tentativas);
+        chuta();
 
         
 
