@@ -1,11 +1,42 @@
 #include <stdio.h>
 #include <string.h>
 #include "forca.h"
+#include <time.h>
+#include <stdlib.h>
 
 
 char palavrasecreta[20];
 char chutes[26];
 int chutesdados = 0;
+
+
+void escolhepalavra() {
+
+    FILE* f;
+    f = fopen("../palavras.txt", "r");
+    if (f == NULL) {
+    printf("Erro ao abrir o arquivo palavras.txt\n");
+    exit(1);
+}
+    
+
+    int qtdpal; 
+    fscanf(f,"%d",&qtdpal);
+    printf("Número de palavras: %d\n", qtdpal);
+
+    srand(time(0));
+    int randomico= rand() % qtdpal;
+
+    for (int i = 0; i <= randomico; i++)
+    {
+        fscanf(f,"%s",palavrasecreta);
+    }
+
+
+    fclose(f);
+    printf("A palavra secreta é: %s\n", palavrasecreta);
+}
+
 
 int jachutou(char letra) {
     int achou = 0;
@@ -49,10 +80,6 @@ void desenhaforca() {
     }
     printf("\n");
 
-}
-
-void escolhepalavra() {
-    sprintf(palavrasecreta, "MELANCIA");
 }
 
 int contadordefalhas(){
