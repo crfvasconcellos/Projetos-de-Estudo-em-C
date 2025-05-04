@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 
-char palavrasecreta[20];
+char palavrasecreta[TAMANHO_PALAVRA];
 char chutes[26];
 int chutesdados = 0;
 
@@ -18,7 +18,7 @@ void adicionapalavra()
     if (resposta1== 's' || resposta1=='S')
     {
 
-        char novapalavra[20];
+        char novapalavra[TAMANHO_PALAVRA];
         while (1)
         {
             
@@ -92,7 +92,6 @@ void escolhepalavra() {
 
     fclose(f);
 }
-
 
 int jachutou(char letra) {
     int achou = 0;
