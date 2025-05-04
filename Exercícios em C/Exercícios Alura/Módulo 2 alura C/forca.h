@@ -6,3 +6,4 @@ void escolhepalavra();
 int contadordefalhas();
 int ganhou();
 void finalizacao ();
+void adicionapalavra();

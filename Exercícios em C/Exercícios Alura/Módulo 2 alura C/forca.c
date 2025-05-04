@@ -9,20 +9,77 @@ char palavrasecreta[20];
 char chutes[26];
 int chutesdados = 0;
 
+void adicionapalavra()
+{
+    char resposta1=' ';
+    printf("\nVocê deseja adicionar uma nova palavra no game? [s/n] \n");
+    scanf(" %c",&resposta1);
+
+    if (resposta1== 's' || resposta1=='S')
+    {
+
+        char novapalavra[20];
+        while (1)
+        {
+            
+        printf("\n QUal a nova palavra? \n");
+        scanf(" %s",novapalavra);
+        
+        char pergunta= ' ';
+        printf("\n Deseja adicionar \"%s\" no jogo da forca? [s/n] ",novapalavra);
+        scanf(" %c",&pergunta);
+
+            if (pergunta== 's' || pergunta=='S')
+            {
+                break;
+            }
+            
+        
+        }
+        
+
+        FILE * f;
+        f= fopen("../palavras.txt","r+");
+
+        if (f == NULL)
+        {
+            printf("\n ERRO AO ABRIR O ARQUIVO, FINALIZANDO PROGRAMA!");
+            exit(1);
+        }
+        
+
+        
+        int qtd;
+
+        fscanf(f,"%d",&qtd);
+        qtd++;
+
+        fseek(f,0,SEEK_SET);
+        fprintf(f,"%d",qtd);
+        
+        fseek(f,0,SEEK_END);
+        fprintf(f,"\n%s",novapalavra);
+
+        fclose(f);
+
+    }
+    
+}
 
 void escolhepalavra() {
 
     FILE* f;
     f = fopen("../palavras.txt", "r");
-    if (f == NULL) {
+    if (f == NULL) 
+    {
     printf("Erro ao abrir o arquivo palavras.txt\n");
     exit(1);
-}
+    }
     
 
     int qtdpal; 
     fscanf(f,"%d",&qtdpal);
-    printf("Número de palavras: %d\n", qtdpal);
+    
 
     srand(time(0));
     int randomico= rand() % qtdpal;
@@ -34,7 +91,6 @@ void escolhepalavra() {
 
 
     fclose(f);
-    printf("A palavra secreta é: %s\n", palavrasecreta);
 }
 
 
@@ -141,6 +197,7 @@ int main() {
 
     } while (!ganhou() && !contadordefalhas());
 
+    adicionapalavra();
     finalizacao();
 
 }
