@@ -122,6 +122,19 @@ void chuta() {
 
 void desenhaforca() {
 
+    int chuteserrado= chuteserrados();
+
+    printf("  _______       \n");
+    printf(" |/      |      \n");
+    printf(" |      %c%c%c  \n",(chuteserrado>=1 ? '(' : ' '),(chuteserrado>=1 ? '_' : ' '),(chuteserrado>=1 ? ')': ' '));
+    printf(" |      %c%c%c  \n",(chuteserrado>=2 ? '\\' : ' ') ,(chuteserrado>=2 ? '|' : ' '),(chuteserrado>=2 ? '/' : ' '));
+    printf(" |       %c     \n",(chuteserrado>=3 ? '|' :  ' '));
+    printf(" |      %c %c   \n",(chuteserrado>=4 ? '/' : ' ') ,(chuteserrado>=5 ? '\\' : ' '));
+    printf(" |              \n");
+    printf("_|___           \n");
+    printf("\n\n");
+
+
     printf("Você já deu %d chutes\n", chutesdados);
 
     for(size_t i = 0; i < strlen(palavrasecreta); i++) {
@@ -137,8 +150,8 @@ void desenhaforca() {
 
 }
 
-int contadordefalhas(){
-
+int chuteserrados()
+{
     int erros=0;
 
     for (int i = 0; i < chutesdados; i++)
@@ -160,8 +173,12 @@ int contadordefalhas(){
         }
         
     }
+    return erros;
+}
 
-    return erros>=5;
+int contadordefalhas(){
+
+    return chuteserrados()>=5;
     
 }
 
@@ -209,7 +226,7 @@ int main() {
     } while (!ganhou() && !contadordefalhas());
 
     
-
+    comentario();
     adicionapalavra();
     finalizacao();
 

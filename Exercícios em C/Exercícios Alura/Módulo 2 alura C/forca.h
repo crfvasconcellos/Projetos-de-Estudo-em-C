@@ -10,3 +10,4 @@ int ganhou();
 void finalizacao ();
 void adicionapalavra();
 void comentario();
+int chuteserrados();
