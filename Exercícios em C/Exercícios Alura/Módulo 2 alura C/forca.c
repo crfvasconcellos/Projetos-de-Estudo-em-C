@@ -183,6 +183,18 @@ void finalizacao (){
     
 }
 
+void comentario(){
+    if (ganhou())
+    {
+        printf("\n PARABÉNS, VOCê GANHHOU!!!!! \n A palavra secreta era %s \n",palavrasecreta);
+    }
+    else
+    {
+        printf("\n Infelizmente você perdeu, a palavra secreta era %s \n",palavrasecreta);
+    }
+    
+}
+
 int main() {
 
     abertura();
@@ -196,6 +208,8 @@ int main() {
         
 
     } while (!ganhou() && !contadordefalhas());
+
+    
 
     adicionapalavra();
     finalizacao();
