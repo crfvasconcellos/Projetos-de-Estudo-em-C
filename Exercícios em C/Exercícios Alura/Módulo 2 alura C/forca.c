@@ -3,6 +3,7 @@
 #include "forca.h"
 #include <time.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 
 char palavrasecreta[TAMANHO_PALAVRA];
@@ -115,6 +116,7 @@ void chuta() {
     char chute;
     printf("Qual letra? ");
     scanf(" %c", &chute);
+    chute= toupper(chute);
 
     chutes[chutesdados] = chute;
     chutesdados++;
