@@ -2,9 +2,12 @@
 #include <stdlib.h>
 #include "pacman.h"
 
+char mapa[5][10+1];
+int linhas,colunas;
+
 void desenhomapa()
 {
-    char mapa[5][10+1];
+    
 
     FILE* f;
 
@@ -15,6 +18,10 @@ void desenhomapa()
         printf("Erro na Leitura do mapa!\n");
         exit(1);
     }
+
+
+    fscanf(f,"%d %d",&linhas,&colunas);
+    printf("Linhas %d Colunas %d",linhas,colunas);
 
 
     for (int i = 0; i < 5; i++)
