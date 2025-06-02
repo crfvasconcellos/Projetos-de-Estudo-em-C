@@ -12,10 +12,6 @@ se ∆ < 0, a equação não possui raízes reais.
 #include <stdio.h>
 #include <math.h>
 
-
-
-
-
 int raiz(double a, double b,double c, double*resultado, double*resultado2)
 {
     double delta;
@@ -92,11 +88,6 @@ else if (resultado== 3)
 {
     printf("\n a equação não possui raízes reais");
 }
-
-
-
-
-   
 
 
 }
