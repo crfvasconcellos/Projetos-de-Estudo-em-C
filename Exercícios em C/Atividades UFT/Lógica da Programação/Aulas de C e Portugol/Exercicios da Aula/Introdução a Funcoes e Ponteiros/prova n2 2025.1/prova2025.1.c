@@ -231,19 +231,13 @@ int main()
         }
         int codigo,jaexiste=0;
 
-        for (int j = 0; j < qtd; j++)
-        {
-
-                if (j==0)
-                {
-                    printf("\nCódigo da impressora %d: ",j+1);
-                    scanf("%d",&impressoras[j] [i]);
+         printf("\nCódigo da impressora %d: ",1);
+                    scanf("%d",&impressoras[0] [i]);
                     contimpredio[i]++;
-                    
-                }
 
-                else
-                {
+        for (int j = 1; j < qtd; j++)
+        {
+                
                     while (1)
                     {
                         jaexiste=0;
@@ -276,8 +270,6 @@ int main()
                             contimpredio[i]++;
                     
                         }
-
-                }
 
                
             
