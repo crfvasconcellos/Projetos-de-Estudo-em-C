@@ -37,7 +37,7 @@ void ler(Pet * dado)
 
 void registrar (Pet dados [60][3],Pet dado,int * qtdtot, int  qtd[3] )
 {
-     printf("\n Em qual abrigo desej-ase Cadastrar o animal?(1,2 ou 3) ");
+    printf("\n Em qual abrigo desej-ase Cadastrar o animal?(1,2 ou 3) ");
     int abrigo;
     scanf("%d",&abrigo);
     abrigo--;
@@ -56,7 +56,7 @@ void registrar (Pet dados [60][3],Pet dado,int * qtdtot, int  qtd[3] )
     }
 }
 
-int mostrar(Pet dados [60][3], int qtd[3])
+void mostrar(Pet dados [60][3], int qtd[3])
 {
     printf("\n \n Em cada Abrigo...");
     for (int i = 0; i < 3; i++)
@@ -115,7 +115,7 @@ int main()
             if (dados[i][j].tutor== 1)
             {
                 printf("\n Qual o nome do tutor? (Caso não tenha coloque 'sem nome'): ");
-                scanf("%s",&dados[i][j].nome);
+                scanf("%s",dados[i][j].nome);
             }
             dados[i][j].codigo= i+(60)*j;
             printf("\n Animal Lido!, o código dele é %d !",dados[i][j].codigo);
@@ -130,7 +130,9 @@ int main()
         printf("\n [1] Cadastrar pet: cadastra um novo animal em determinado abrigo, se houver espaço na matriz Dados. Obs.: Chama a função “ler”, depois a função “registrar” e depois a função “mostrar”. \n [2] Busca pet para adoção: dado o tipo do animal, mostrar todos destes que não tem tutor. \n [3] Adotar: dado o código do animal, inserir o nome do tutor. Obs.: Parar a busca quando encontrar o código. Se não encontrar o código, informar com uma mensagem na tela. Se o animal já tiver um tutor, perguntar se deseja editar o nome. \n [4] Relatório por abrigo: dado o abrigo, mostrar quantos cachorros e quantos gatos estão registrados, quantos destes são filhotes e qual a porcentagem de animais sem tutor. \n [5] Mostrar: mostrar todos os dados dos animais em cada abrigo. -1 Para sair ");
         scanf("%d",&resposta);
         Pet dado={0};
-        int tipo;
+        int tipo,cod,abrigo;
+
+        int encontrou= 0;
 
         switch (resposta)
         {
@@ -148,7 +150,7 @@ int main()
             {
                 for (int j = 0; j < qtd[i] ; j++)
                 {
-                    if (dados[j][i].tipo== tipo)
+                    if (dados[j][i].tipo== tipo && dados[j][i].tutor == 2)
                     {
                         printf("\n\n-Pet %d.%d",i+1,j+1);
                         printf("\nCódigo: %d",dados[j][i].codigo);
@@ -159,6 +161,98 @@ int main()
                     }   
                 }
             }
+            break;
+    
+        case 3:
+            printf("\n Qual o código do animal? ");
+            scanf("%d",&cod);
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < qtd[i]; j++)
+                {
+                    if (dados[j][i].codigo== cod)
+                    {
+                        encontrou= 1;
+                        printf("\n Pet Encontrado!");
+                        if (dados[j][i].tutor== 1)
+                        {
+                            printf("\n Esse pet já possue um tutor, deseja alterar seu nome? (1- sim 2- não)");
+                            
+                            scanf("%d",&resposta);
+
+                            if (resposta== 1)
+                            {
+                                printf("\n Nome: ");
+                                scanf("%s",dados[j][i].nome);
+                            }
+                            
+                        }
+                        else
+                        {
+                            printf("\n Qual nome deseja colocar no tutor?");
+                            scanf("%s",dados[j][i].nome);
+                            dados[j][i].tutor= 1;
+                        }       
+                    }
+                }
+                
+            }
+            if (encontrou == 0)
+            {
+                printf("\n Animal não encontrado!");
+            }
+            
+            break;
+        
+        
+        case 4:
+            printf("\n Qual o abrigo? ");
+            scanf("%d",&abrigo);
+            printf("\n Abrigo %d",abrigo);
+            abrigo--;
+            int cat,dog;
+            int crian;
+            int semtut;
+            semtut=crian=cat=dog=0;
+            for (int i = 0; i < qtd[abrigo]; i++)
+            {
+               if (dados[i][abrigo].tipo==1)
+               {
+                 cat++;
+               }
+               else if (dados[i][abrigo].tipo>1 && dados[i][abrigo].tipo<=4)
+               {
+                 dog++;
+               }
+               
+               
+               if (dados[i][abrigo].idade==1)
+               {
+                 crian++;
+               }
+
+               
+
+               if (dados[i][abrigo].tutor== 2)
+               {
+                 semtut++;
+               }
+               
+               
+            }
+            
+            float semtutpor= ((float)semtut/(float)qtd[abrigo])*100;
+
+            printf("\n Relatório --- \n");
+            printf("\n ");
+            printf("\n Existem, nesse abrigo, %d gatos e %d cachorros ",cat,dog);
+            printf("\n Cerca de %d deles são filhotes ",crian);
+            printf("\n %.2f%% não possue um tutor", semtutpor);
+                    
+            break;
+
+        case 5:
+            mostrar(dados,qtd);
             break;
         default:
             printf("\n Nenhuma opção Válida foi registrada!");
