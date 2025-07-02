@@ -50,6 +50,7 @@ void registrar (Pet dados [60][3],Pet dado,int * qtdtot, int  qtd[3] )
             qtd[abrigo]++;
             (*qtdtot)++;
             printf("\n Animal Registrado!, o código dele é %d !",dados[i][abrigo].codigo);
+            break;
         }
         
         
