@@ -23,7 +23,7 @@ void adicionapalavra()
         while (1)
         {
             
-        printf("\n QUal a nova palavra? \n");
+        printf("\n Qual a nova palavra? \n");
         scanf(" %s",novapalavra);
         
         char pergunta= ' ';
