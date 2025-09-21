@@ -18,6 +18,22 @@ int main(){
     printf("\n\n");
 
 
+    //Alocação de Um Vetor Dinâmico Usando Malloc (Memória Heap)
+
+    int* vmal = (int*) malloc(5*sizeof(int));
+
+
+    printf("\n&Vmal = %p  Vmal = %p \n", &vmal,vmal);
+
+    for (int i = 0; i < 5; i++)
+    {
+        printf("&Vmal[%d] = %p Vmal[%d] = %d \n",i,&vmal[i],i,vmal[i]);
+
+    }
+
+    printf("\n\n");
+    
+
 
 
     
