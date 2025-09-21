@@ -34,7 +34,19 @@ int main(){
     printf("\n\n");
     
 
+// Alocação de Um Vetor Dinâmico Usando Calloc (Memória Heap)
+
+int * Vcalloc = (int*) calloc(5,sizeof(int));
+
+printf("\n&Vcal = %p  Vcal = %p \n", &Vcalloc,Vcalloc);
+
+    for (int i = 0; i < 5; i++)
+    {
+        printf("&Vcal[%d] = %p Vcal[%d] = %d \n",i,&Vcalloc[i],i,Vcalloc[i]);
+
+    }
+
+    printf("\n\n");
 
 
-    
 }
