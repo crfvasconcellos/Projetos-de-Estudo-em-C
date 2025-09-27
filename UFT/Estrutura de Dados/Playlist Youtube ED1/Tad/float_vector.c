@@ -36,6 +36,31 @@ void destroy(FloatVector **vec_ref) {
 }
 
 
+int size(const FloatVector * vec){
+    return vec->size;
+}
+
+int capacity(const FloatVector * vec){
+    return vec->capacity;
+}
+
+float at(const FloatVector *vec, int index){
+    if (index < 0 || index >= vec->size) {
+        fprintf(stderr, "ERROR in 'at'\n");
+        fprintf(stderr, "Index [%d] is out of bounds: [0, %d]\n", index, vec->size - 1);
+        exit(EXIT_FAILURE); // termina o programa com um código de erro
+        // EXIT_FAILURE ==> stdlib.h
+    }
+
+    return vec->data[index];
+}
+
+float get(const FloatVector *vec, int index) {
+    return vec->data[index];
+}
+
+
+
 void append(FloatVector *vec, float val) {
     if (vec->size == vec->capacity) {
         fprintf(stderr, "ERROR in 'append'\n");
