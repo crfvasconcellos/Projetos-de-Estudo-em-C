@@ -6,12 +6,12 @@
 typedef struct _snode
 {
     int val;
-    struct _simple_node * next;
+    struct _snode * next;
    
 }SNode;
 
 
-typedef struct _linked_list
+typedef struct linked_list
 {
     SNode * begin;
 }LinkedList;
@@ -26,7 +26,7 @@ LinkedList * LinkedList_create(){
 
 
 
-SNode_create(int val){
+SNode * SNode_create(int val){
     SNode *N = (SNode*) calloc(1,sizeof(SNode));
     N->val = val;
     N->next=NULL;
@@ -36,7 +36,7 @@ SNode_create(int val){
 }
 
 
-LinkedList_add_First(LinkedList * L , int val){
+void LinkedList_add_First(LinkedList * L , int val){
     if (L->begin == NULL)
     {
         SNode* no = SNode_create(val);
@@ -52,4 +52,18 @@ LinkedList_add_First(LinkedList * L , int val){
     
     
 
+}
+
+void LinkedList_Print(const LinkedList * L){
+    
+    SNode* no = L->begin;
+
+    printf("L -> ");
+
+    while (no!= NULL)
+    {
+        printf("%d -> ", no->val);
+        no = no->next;
+    }
+    printf("NULL");
 }
