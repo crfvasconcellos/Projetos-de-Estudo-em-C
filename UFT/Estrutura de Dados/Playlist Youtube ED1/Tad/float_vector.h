@@ -1,4 +1,5 @@
-
+#ifndef FLOAT_VECTOR_H
+#define FLOAT_VECTOR_H
 
 typedef struct float_vector FloatVector;
 
@@ -14,3 +15,4 @@ void append(FloatVector * vec, float val);
 void set(FloatVector * vec,int index, float val);
 void print(const FloatVector * vec);
 
+#endif
