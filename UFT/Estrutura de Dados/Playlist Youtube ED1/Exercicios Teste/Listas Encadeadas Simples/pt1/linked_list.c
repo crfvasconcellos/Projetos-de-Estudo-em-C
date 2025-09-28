@@ -37,20 +37,47 @@ SNode * SNode_create(int val){
 
 
 void LinkedList_add_First(LinkedList * L , int val){
+    SNode* no = SNode_create(val);
+    if (L->begin == NULL)
+    {
+        
+        L->begin= no;
+        
+    }
+
+    else{
+        
+        no->next= L->begin;
+        L->begin = no;
+    }
+    
+    
+
+}
+
+void LinkedList_add_Last(LinkedList * L , int val){
+    
     if (L->begin == NULL)
     {
         SNode* no = SNode_create(val);
         L->begin= no;
         
     }
-
     else{
-        SNode* no = SNode_create(val);
-        no->next= L->begin;
-        L->begin = no;
+        SNode* no = L->begin;
+
+        while (1)
+        {
+            if (no->next== NULL)
+            {
+               no->next =  SNode_create(val);
+               break;
+            }
+            no = no->next;
+
+        }
+        
     }
-    
-    
 
 }
 

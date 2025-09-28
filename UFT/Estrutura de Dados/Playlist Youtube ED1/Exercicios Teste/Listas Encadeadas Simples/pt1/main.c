@@ -5,12 +5,14 @@ int main() {
 
     LinkedList * L = LinkedList_create();
 
-    LinkedList_add_First(L , 10 );
-    LinkedList_add_First(L , 5 );
-    LinkedList_add_First(L , 3);
-    LinkedList_add_First(L , 2 );
-    LinkedList_add_First(L , 1 );
+    LinkedList_add_Last(L , 10 );
+    LinkedList_add_Last(L , 5 );
+    LinkedList_add_Last(L , 3);
+    LinkedList_add_Last(L , 2 );
+    LinkedList_add_Last(L , 1 );
+    LinkedList_add_First(L,11);
     LinkedList_Print(L);
+    
 
 
 }
