@@ -14,12 +14,14 @@ typedef struct _snode
 typedef struct linked_list
 {
     SNode * begin;
+    SNode * end;
 }LinkedList;
 
 
 LinkedList * LinkedList_create(){
     LinkedList *L = (LinkedList*) calloc(1,sizeof(LinkedList));
     L->begin = NULL;
+    L->end = NULL;
 
     return L;
 }
@@ -42,6 +44,7 @@ void LinkedList_add_First(LinkedList * L , int val){
     {
         
         L->begin= no;
+        L->end= no;
         
     }
 
@@ -61,21 +64,13 @@ void LinkedList_add_Last(LinkedList * L , int val){
     {
         SNode* no = SNode_create(val);
         L->begin= no;
+        L->end= no;
         
     }
     else{
-        SNode* no = L->begin;
-
-        while (1)
-        {
-            if (no->next== NULL)
-            {
-               no->next =  SNode_create(val);
-               break;
-            }
-            no = no->next;
-
-        }
+        SNode* no = L->end;
+        no->next = SNode_create(val);
+        L->end= no->next;
         
     }
 
