@@ -34,3 +34,22 @@ SNode_create(int val){
     return N;
 
 }
+
+
+LinkedList_add_First(LinkedList * L , int val){
+    if (L->begin == NULL)
+    {
+        SNode* no = SNode_create(val);
+        L->begin= no;
+        
+    }
+
+    else{
+        SNode* no = SNode_create(val);
+        no->next= L->begin;
+        L->begin = no;
+    }
+    
+    
+
+}

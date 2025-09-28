@@ -8,9 +8,8 @@ typedef struct _snode SNode;
 
 SNode * SNode_create();
 
-
-
 LinkedList * LinkedList_create();
 
+void LinkedList_add_First();
 
 #endif
