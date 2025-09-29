@@ -5,6 +5,16 @@ int main() {
 
     LinkedList * L = LinkedList_create();
 
+
+    LinkedList_add_First(L,11);
+    LinkedList_Print(L);
+    printf("\n\n");
+
+    LinkedList_remove(L,11);
+    LinkedList_Print(L);
+    printf("\n\n");
+
+
     LinkedList_add_Last(L , 10 );
     LinkedList_add_Last(L , 5 );
     LinkedList_add_Last(L , 3);
@@ -13,7 +23,7 @@ int main() {
     LinkedList_add_First(L,11);
     LinkedList_Print(L);
     printf("\n\n");
-    LinkedList_remove(L,0);
+    LinkedList_remove(L,5);
     LinkedList_Print(L);
     
 
