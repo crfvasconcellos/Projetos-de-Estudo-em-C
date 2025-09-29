@@ -69,16 +69,21 @@ void LinkedList_add_Last(LinkedList * L , int val){
 }
 
 
-void LinkedList_remove(LinkedList * L,int val){
+void LinkedList_remove(LinkedList * L,int val)
+{
    if (L->begin != NULL && L->end != NULL )
    {
+            // CASO 1 = O elemento está na cabeça
             if (val == L->begin->val)
             {
                 SNode * no = L->begin;
                 L->begin = L->begin->next;
                 free(no);
             }   
-            else{
+
+            // CASO 2 = O elemento não está na cabeça
+            else
+            {
                 SNode * no = L->begin->next;
                 SNode * antno= L->begin;
                 while (1)
@@ -86,11 +91,18 @@ void LinkedList_remove(LinkedList * L,int val){
                         
                     if (no->val == val)
                     {
+                        //Caso Seja o Último
+                        if (no->next == NULL)
+                        {
+                            L->end = antno;
+                        }
+                        
                         antno->next = no->next;
                         free (no);
                         break;    
                     }
-                    else{
+                    else
+                    {
                         if (no->next == NULL)
                         {
                             printf("\n Valor a ser removido nao encontrado ");
@@ -100,10 +112,10 @@ void LinkedList_remove(LinkedList * L,int val){
                         no = no->next;
                         antno = antno->next;
                         
-                        } 
+                    } 
                 }
             
-                }
+            }
    }
     
 }
