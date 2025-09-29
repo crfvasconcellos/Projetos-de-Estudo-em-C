@@ -13,5 +13,6 @@ LinkedList * LinkedList_create();
 void LinkedList_add_First(LinkedList * L , int val);
 void LinkedList_add_Last(LinkedList * L , int val);
 void LinkedList_Print(const LinkedList * L);
+void LinkedList_remove(LinkedList * L,int val);
 
 #endif

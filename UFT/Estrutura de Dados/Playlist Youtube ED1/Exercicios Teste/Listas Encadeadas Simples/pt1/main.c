@@ -12,7 +12,9 @@ int main() {
     LinkedList_add_Last(L , 1 );
     LinkedList_add_First(L,11);
     LinkedList_Print(L);
+    printf("\n\n");
+    LinkedList_remove(L,0);
+    LinkedList_Print(L);
     
-
 
 }

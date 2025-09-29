@@ -68,6 +68,47 @@ void LinkedList_add_Last(LinkedList * L , int val){
 
 }
 
+
+void LinkedList_remove(LinkedList * L,int val){
+   if (L->begin != NULL && L->end != NULL )
+   {
+            if (val == L->begin->val)
+            {
+                SNode * no = L->begin;
+                L->begin = L->begin->next;
+                free(no);
+            }   
+            else{
+                SNode * no = L->begin->next;
+                SNode * antno= L->begin;
+                while (1)
+                {
+                        
+                    if (no->val == val)
+                    {
+                        antno->next = no->next;
+                        free (no);
+                        break;    
+                    }
+                    else{
+                        if (no->next == NULL)
+                        {
+                            printf("\n Valor a ser removido nao encontrado ");
+                            break;
+                        }
+                        
+                        no = no->next;
+                        antno = antno->next;
+                        
+                        } 
+                }
+            
+                }
+   }
+    
+}
+
+
 void LinkedList_Print(const LinkedList * L){
     
     SNode* no = L->begin;
@@ -81,3 +122,5 @@ void LinkedList_Print(const LinkedList * L){
     }
     printf("NULL");
 }
+
+
