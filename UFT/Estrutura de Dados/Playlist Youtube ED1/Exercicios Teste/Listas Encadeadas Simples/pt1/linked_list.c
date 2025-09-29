@@ -78,6 +78,12 @@ void LinkedList_remove(LinkedList * L,int val)
             {
                 SNode * no = L->begin;
                 L->begin = L->begin->next;
+                //se só possue 1 elemento (Begin e End apontam pra ele)
+                if (L->end == no)
+                {
+                  L->end = NULL;   
+                }
+                
                 free(no);
             }   
 
