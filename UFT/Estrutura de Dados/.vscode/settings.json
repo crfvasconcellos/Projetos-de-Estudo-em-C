@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "float_vector.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "stdlib.h": "c",
+        "doublylinkedlist.h": "c"
     }
 }
