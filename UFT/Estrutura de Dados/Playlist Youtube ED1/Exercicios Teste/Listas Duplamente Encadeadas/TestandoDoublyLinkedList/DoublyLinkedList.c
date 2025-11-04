@@ -100,3 +100,19 @@ void DoublyLinkedList_addfirst(DoublyLinkedList * L, int val){
 
 }
 
+void DoublyLinkedList_print(DoublyLinkedList * L){
+
+    Node * aux = L->begin;
+
+    printf("\n");
+
+    while (aux != NULL)
+    {
+        printf("%d->",aux->val);
+        aux= aux->after;
+
+    }
+    printf(" NULL\n");
+    
+
+}

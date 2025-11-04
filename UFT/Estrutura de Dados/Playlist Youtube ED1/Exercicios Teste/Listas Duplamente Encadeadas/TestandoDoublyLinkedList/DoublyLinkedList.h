@@ -14,5 +14,7 @@ bool DoublyLinkedList_isempety(DoublyLinkedList * L);
 
 void DoublyLinkedList_destroy(DoublyLinkedList* L);
 void DoublyLinkedList_addfirst(DoublyLinkedList * L, int val);
+void DoublyLinkedList_print(DoublyLinkedList * L);
+
 
 #endif
