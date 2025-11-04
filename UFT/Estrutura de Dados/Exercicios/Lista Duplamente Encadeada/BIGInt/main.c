@@ -20,10 +20,11 @@ int main(){
         printf("Erro: A soma retornou um ponteiro nulo");
         
     }
+
+
+    DoublyLinkedList_printf(BigNumber);
     
-    
-    
-    
+
 
 
 }

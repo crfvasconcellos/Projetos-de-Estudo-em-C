@@ -121,14 +121,14 @@ DoublyLinkedList* DoublyLinkedList_BigSum(int val1, int val2){
     int cont = 0;
     int sum;
     int add;
-    SNode * aux1;
-    SNode * aux2;
+    SNode * aux1 = L1->end;
+    SNode * aux2 = L2->end;
 
-    while (1)
+    while (aux1 != NULL || aux2 != NULL)
     {
 
 
-        if (cont == 0 && L1->end != NULL && L2->end != NULL)
+        if (cont == 0 )
         {
             sum = L1->end->val + L2->end->val;
             aux1 = L1->end->before;
@@ -143,7 +143,7 @@ DoublyLinkedList* DoublyLinkedList_BigSum(int val1, int val2){
             }
 
         }
-        else if (aux1 != NULL && aux2 != NULL)
+        else
         {
             sum = aux1->val + aux2->val;
             aux1 = aux1->before;
@@ -158,9 +158,7 @@ DoublyLinkedList* DoublyLinkedList_BigSum(int val1, int val2){
             }
 
         }
-        else{
-            break;
-        }
+    
         
 
         DoublyLinkedList_addLast(L3,sum);
