@@ -17,6 +17,7 @@ int main(){
     }
 
     DoublyLinkedList_print(L);
+    DoublyLinkedList_invertedprint(L);
     
 
 

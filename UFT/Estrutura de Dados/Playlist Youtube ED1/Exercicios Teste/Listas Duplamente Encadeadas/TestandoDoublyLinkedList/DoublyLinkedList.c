@@ -116,3 +116,21 @@ void DoublyLinkedList_print(DoublyLinkedList * L){
     
 
 }
+
+void DoublyLinkedList_invertedprint(DoublyLinkedList * L){
+
+    Node * aux = L->end;
+
+    printf("\n");
+
+    while (aux != NULL)
+    {
+        printf("%d->",aux->val);
+        aux= aux->prev;
+
+    }
+    printf(" NULL\n");
+    
+
+
+}
