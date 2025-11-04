@@ -56,7 +56,7 @@ void DoublyLinkedList_destroy(DoublyLinkedList** L){
     }
 
     free(*L);
-    *L = NULL;
+    (*L) = NULL;
 
 }
 
