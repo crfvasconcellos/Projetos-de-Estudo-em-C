@@ -97,3 +97,20 @@ void Stack_destroy(Stack ** S){
 
 }
 
+void Stack_printf(Stack * S){
+
+    printf("\n\nTopo-> ");
+
+    SNode * aux = S->top;
+
+
+    while (aux == NULL)
+    {
+        printf("%d->",aux->val);
+        aux= aux->next;
+    }
+    
+
+    printf("NULL\n\n");
+
+}
