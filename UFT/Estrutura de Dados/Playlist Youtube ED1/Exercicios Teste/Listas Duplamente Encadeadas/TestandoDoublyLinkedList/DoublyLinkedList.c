@@ -100,6 +100,31 @@ void DoublyLinkedList_addfirst(DoublyLinkedList * L, int val){
 
 }
 
+void DoublyLinkedList_addLast(DoublyLinkedList * L, int val){
+
+    Node * newNode = Node_create(val);
+
+
+    if (DoublyLinkedList_isempety(L))
+    {
+        L->begin= newNode;
+        L->end= newNode;
+
+    }
+    else{
+
+        newNode->after = L->end;
+        L->end->prev = newNode;
+        L->end = newNode;
+
+    }
+    
+
+    L->size++;
+
+
+}
+
 void DoublyLinkedList_print(DoublyLinkedList * L){
 
     Node * aux = L->begin;
