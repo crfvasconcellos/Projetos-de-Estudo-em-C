@@ -14,7 +14,7 @@ void Stack_printf(Stack * S);
 void Stack_destroy(Stack ** S);
 
 
-int Stack_pop(Stack * S);
+int Stack_pop(Stack * S, int *recebeval);
 
 
 #endif

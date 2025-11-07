@@ -103,8 +103,13 @@ void Stack_printf(Stack * S){
 
     SNode * aux = S->top;
 
-
-    while (aux == NULL)
+    if (aux == NULL)
+    {
+        printf("\n A lista esta vazia!");
+    }
+    
+    
+    while (aux != NULL)
     {
         printf("%d->",aux->val);
         aux= aux->next;
