@@ -32,6 +32,25 @@ int main() {
     // 🔹 adiciona terminador de string
     fraseInvertida[len] = '\0';
 
+    int iguais = 1;
+
+    for (int i = 0; i < len; i++)
+    {
+        if (frase[i] != fraseInvertida[i])
+        {
+            iguais = 0;
+        }
+        
+    }
+    
+    
+
+    if (iguais == 1)
+    {
+        printf("\nAs palavaras são palíndromos!\n");
+    }
+    
+
     printf("\n\n%s ficou ao inverter: %s\n", frase, fraseInvertida);
 
     return 0;
