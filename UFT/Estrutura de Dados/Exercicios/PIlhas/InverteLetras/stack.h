@@ -5,16 +5,16 @@
 typedef struct _node SNode;
 typedef struct _stack Stack;
 
-SNode * SNode_create(int val);
+SNode * SNode_create(char val);
 
 Stack * Stack_create();
 
-void Stack_push(Stack * S ,int val);
+void Stack_push(Stack * S ,char val);
 void Stack_printf(Stack * S);
 void Stack_destroy(Stack ** S);
 
 
-int Stack_pop(Stack * S, int *recebeval);
+int Stack_pop(Stack * S, char *recebeval);
 
 
 #endif

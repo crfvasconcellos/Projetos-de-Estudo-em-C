@@ -1,33 +1,38 @@
 #include "stack.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
+int main() {
+    Stack *S = Stack_create();
 
-int main()
-{
+    char frase[100];
 
-    Stack * S = Stack_create();
+    printf("\nDigite seu nome: ");
+    fgets(frase, 100, stdin);
 
-    for (int  i = 1; i < 4; i++)
-    {
-        int val;
-        printf("\nValor %d: ",i);
-        scanf("%d",&val);
-        Stack_push(S,val);
+    // 🔹 remove o '\n' do final, se existir
+    frase[strcspn(frase, "\n")] = '\0';
+
+    printf("\nOlá, %s", frase);
+
+    // 🔹 empilha cada caractere da string
+    for (int i = 0; i < strlen(frase); i++) {
+        Stack_push(S, frase[i]);
     }
-    
 
-    Stack_printf(S);
+    // 🔹 cria string invertida
+    char fraseInvertida[100];
+    int len = strlen(frase);
 
-    // tira o topo
+    for (int i = 0; i < len; i++) {
+        Stack_pop(S, &fraseInvertida[i]);
+    }
 
-    int topo;
+    // 🔹 adiciona terminador de string
+    fraseInvertida[len] = '\0';
 
-    Stack_pop(S,&topo);
-
-    printf("\nRetiramos o Topo %d e ficou: \n",topo);
-    Stack_printf(S);
-
+    printf("\n\n%s ficou ao inverter: %s\n", frase, fraseInvertida);
 
     return 0;
 }

@@ -6,7 +6,7 @@
 
 typedef struct _node {
 
-    int val;
+    char val;
     struct _node * next;
 
 }SNode;
@@ -19,7 +19,7 @@ typedef struct _stack {
 
 }Stack;
 
-SNode * SNode_create(int val){
+SNode * SNode_create(char val){
 
     SNode * node = (SNode*) calloc(1,sizeof(SNode));
     node->val = val;
@@ -39,7 +39,7 @@ Stack * Stack_create(){
 }
 
 
-void Stack_push(Stack * S ,int val){
+void Stack_push(Stack * S ,char val){
 
     SNode * node = SNode_create(val);
 
@@ -59,7 +59,7 @@ void Stack_push(Stack * S ,int val){
 
 }
 
-int Stack_pop(Stack * S, int * recebeval){
+int Stack_pop(Stack * S, char * recebeval){
 
     if (S->size == 0)
     {
@@ -111,7 +111,7 @@ void Stack_printf(Stack * S){
     
     while (aux != NULL)
     {
-        printf("%d->",aux->val);
+        printf("%c->",aux->val);
         aux= aux->next;
     }
     
