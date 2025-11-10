@@ -6,9 +6,9 @@ int main(){
 
     DoublyLinkedList * L = DoublyLinkedList_create();
 
-    int valores[3];
+    int valores[5];
 
-    for (size_t i = 0; i < 3; i++)
+    for (size_t i = 0; i < 5; i++)
     {
         printf("\n Valor %d:  ",i);
         scanf("%d",&valores[i]);
@@ -17,9 +17,17 @@ int main(){
     }
 
     DoublyLinkedList_print(L);
-    DoublyLinkedList_invertedprint(L);
-    
+
+    printf("Removendo o 2");
+    DoublyLinkedList_remove(L,2);
 
 
+
+    DoublyLinkedList_print(L);
+
+    printf("Removendo o 5 ");
+    DoublyLinkedList_remove(L,5);
+
+     DoublyLinkedList_print(L);
 
 }

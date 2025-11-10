@@ -11,11 +11,11 @@ Node * Node_create();
 DoublyLinkedList * DoublyLinkedList_create();
 
 bool DoublyLinkedList_isempety(DoublyLinkedList * L);
+int DoublyLinkedList_remove(DoublyLinkedList * L, int val);
 
 void DoublyLinkedList_destroy(DoublyLinkedList** L);
 void DoublyLinkedList_addfirst(DoublyLinkedList * L, int val);
 void DoublyLinkedList_addLast(DoublyLinkedList * L, int val);
 void DoublyLinkedList_print(DoublyLinkedList * L);
 void DoublyLinkedList_invertedprint(DoublyLinkedList * L);
-
 #endif

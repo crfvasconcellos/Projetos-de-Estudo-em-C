@@ -159,3 +159,69 @@ void DoublyLinkedList_invertedprint(DoublyLinkedList * L){
 
 
 }
+
+
+int DoublyLinkedList_remove(DoublyLinkedList * L, int val){
+
+    if (!DoublyLinkedList_isempety(L))
+    {
+        Node * p;
+        p = L->begin;
+        
+        if (L->begin->val == val)
+        {
+
+            if (L->size == 1)
+            {
+                L->begin= NULL;
+                L->end = NULL;
+                free(p);    
+            }
+            else{
+                L->begin = p->after;
+                L->begin->prev= NULL;
+                free(p);
+            }
+            
+            
+
+        }
+        else{
+
+            while (p != NULL && p->val != val)
+            {
+                p = p->after;
+            }
+            
+            if (p == NULL)
+            {
+                printf("\n\nElemento nao encontrado e não deletado!");
+                return 1;
+            }
+            
+            if (p == L->end)
+            {
+                L->end = p->prev;
+                p->prev->after = NULL;
+                
+            }
+            else
+            {
+                p->prev->after = p->after;
+                p->after->prev = p->prev;
+            }
+            
+            free(p);
+            
+            
+        }
+        
+        printf("\nElemento Removido");
+        L->size --;
+
+    }
+
+    return 0;
+
+    }
+    
