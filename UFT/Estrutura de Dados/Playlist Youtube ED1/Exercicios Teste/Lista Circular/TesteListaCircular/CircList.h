@@ -13,6 +13,7 @@ CircList * CircList_create();
 
 
 void CircList_addFirst(CircList * L, int val);
+void CircList_addLast(CircList * L, int val);
 void CircList_destroy(CircList** L);
 void CircList_printf(CircList* L);
 void CircList_invertedprintf(CircList* L);

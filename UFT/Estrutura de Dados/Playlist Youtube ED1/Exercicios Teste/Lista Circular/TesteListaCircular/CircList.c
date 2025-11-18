@@ -110,6 +110,29 @@ void CircList_addFirst(CircList * L, int val){
 
 }
 
+void CircList_addLast(CircList * L, int val){
+    CNode * no = CNode_create(val);
+
+    if (CircList_isempty(L))
+    {
+       L->begin = no;
+       L->end = no;
+
+    }
+    else{
+
+        L->end->next = no;
+        L->begin->before = no;
+        no->next = L->begin;
+        no->before = L->end;
+        L->end = no;
+    }
+    
+
+    L->size++;
+
+
+}
 
 void CircList_printf(CircList* L){
 
@@ -146,3 +169,4 @@ void CircList_invertedprintf(CircList* L){
 
 
 }
+
