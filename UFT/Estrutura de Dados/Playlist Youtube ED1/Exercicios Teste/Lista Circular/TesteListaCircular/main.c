@@ -10,9 +10,13 @@ int main(){
     CircList_addFirst(Lista,7);
     CircList_addFirst(Lista,2);
 
+    CircList_addLast(Lista,11);
+    CircList_addLast(Lista,12);
+
+
 
     CircList_printf(Lista);
-    CircList_invertedprintf(Lista);
+    
 
 
 
