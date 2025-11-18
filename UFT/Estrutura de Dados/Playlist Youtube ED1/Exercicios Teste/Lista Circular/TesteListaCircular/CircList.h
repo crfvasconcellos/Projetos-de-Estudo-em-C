@@ -19,6 +19,9 @@ void CircList_printf(CircList* L);
 void CircList_invertedprintf(CircList* L);
 
 
+int CircList_remove(CircList * L, int val);
+
+
 bool CircList_isempty(CircList* L);
 
 #endif

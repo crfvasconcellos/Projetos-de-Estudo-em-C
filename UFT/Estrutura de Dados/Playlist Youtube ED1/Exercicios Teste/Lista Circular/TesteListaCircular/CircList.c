@@ -170,3 +170,82 @@ void CircList_invertedprintf(CircList* L){
 
 }
 
+int CircList_remove(CircList * L, int val){
+    if (!CircList_isempty(L))
+    {
+        CNode * aux = L->begin;
+
+        if (L->begin->val == val)
+        {
+            if (L->size == 1)
+            {
+                free(aux);
+                L->begin= NULL;
+                L->end = NULL;
+            }
+            else{
+
+                L->begin = aux->next;
+                L->end->next = aux->next;
+                L->begin->before = L->end;
+
+                free(aux);
+
+            }
+            
+
+        }
+        else{
+
+            while (aux->val != val && aux != L->end)
+            {
+                aux = aux->next;
+            }
+
+            if (aux == L->end && aux->val == val)
+            {
+                L->end = aux->before;
+                L->end->next = L->begin;
+                L->begin->before = L->end;
+                free(aux);
+
+            }
+            else if (aux->val == val)
+            {
+                aux->before->next = aux->next;
+                aux->next->before = aux->before;
+                free(aux);
+            }
+            else{
+
+                printf("\nValor a ser removido nao encontrado!");
+                return 1;
+
+
+            }
+            
+            
+
+
+
+
+        }
+        
+        
+        
+        
+        
+        L->size --;
+        return 0;
+        
+    }
+    else{
+
+        printf("\nA lista esta vazia!");
+        return 1;
+
+    }
+    
+    
+
+}
