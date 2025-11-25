@@ -17,6 +17,7 @@ int Stack_pop(Stack * s1);
 int Stack_peek(Stack* s);
 
 bool Stack_is_empty(Stack * s); 
+void Stack_print(Stack * s);
 
 
 

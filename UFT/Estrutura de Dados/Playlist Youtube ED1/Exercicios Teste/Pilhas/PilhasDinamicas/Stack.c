@@ -120,3 +120,24 @@ bool Stack_is_empty(Stack * s){
     return s->qtd == 0;
 
 }
+
+void Stack_print(Stack * s){
+
+    if (s == NULL){
+        printf("Pilha (NULL)\n");
+        return;
+    }
+
+    if (Stack_is_empty(s)){
+        printf("Pilha vazia\n");
+        return;
+    }
+
+    SNode * aux = s->top;
+    printf("Pilha (top -> bottom): ");
+    while(aux != NULL){
+        printf("%d ", aux->val);
+        aux = aux->next;
+    }
+    printf("\n");
+}
