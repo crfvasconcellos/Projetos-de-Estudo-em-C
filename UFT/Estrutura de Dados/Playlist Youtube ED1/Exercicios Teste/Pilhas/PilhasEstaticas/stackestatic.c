@@ -4,8 +4,8 @@
 typedef struct _stackstatic{
 
     int top;
-    long capacity;
-    long *data;
+    int capacity;
+    int *data;
 
 
 
