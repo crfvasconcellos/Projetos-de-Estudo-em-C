@@ -1,18 +1,5 @@
 #include "tree.h"
 
-typedef struct _node
-{
-    int key;
-    struct _node* left;
-    struct _node* right;
-
-}Node;
-
-typedef struct _tree
-{
-    Node* root;
-}Tree;
-
 Node * Node_create(int val){
     Node * node = malloc(sizeof(Node));
     node->key = val;
@@ -21,13 +8,21 @@ Node * Node_create(int val){
     return node;
 }
 
+Tree * Tree_create(){
+    Tree * tree = malloc(sizeof(Tree));
+    tree->root = NULL;
+    return tree;
+}
 
-Tree * readATree(char tree[], int *i){
+Node * readATree(char tree[], int *i){
     
     if (tree[*i] == '(' && tree[*i+1] == ')')
     {
+        *i = *i + 2;
         return NULL;
     }
+
+     if (tree[*i] != '(') return NULL;
 
     (*i)++;
 
@@ -40,8 +35,11 @@ Tree * readATree(char tree[], int *i){
 
     Node * node = Node_create(val);
 
-    node->left = readATree(tree,i);
-    node->right = readATree(tree,i);
+    if (tree[*i] == '(')
+        node->left = readATree(tree, i);
+
+    if (tree[*i] == '(')
+        node->right = readATree(tree, i);
 
     (*i)++;
     
@@ -50,4 +48,21 @@ Tree * readATree(char tree[], int *i){
 
 }
 
+bool IsBst(Node * root, int min, int max){
+
+    if (root == NULL)
+    {
+        return true;
+    }
+    
+    bool teste = true;
+
+    if (root->key <= min || root->key >= max)
+    {
+        return false;
+    }
+    
+    return IsBst(root->left, min, root->key) && IsBst(root->right,root->key,max);
+    
+}
 

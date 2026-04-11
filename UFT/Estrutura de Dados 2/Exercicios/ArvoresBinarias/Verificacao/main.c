@@ -1,4 +1,5 @@
 #include "tree.h"
+#include <limits.h>
 
 
 int main(){
@@ -7,7 +8,19 @@ int main(){
     char arvore[4096];
     scanf("%s",arvore);
     
-    Tree * tree = malloc(sizeof(tree));
-    tree
+    Tree * tree = Tree_create();
+    int inteiro = 0;
+    tree->root = readATree(arvore,&inteiro);
+
+    bool is = IsBst(tree->root,INT_MIN,INT_MAX);
+
+    if (is == true)
+    {
+        printf("Bst");
+    }
+    else{
+        printf("notBSt");
+    }
+    
 
 }
