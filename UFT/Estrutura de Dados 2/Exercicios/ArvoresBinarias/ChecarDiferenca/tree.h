@@ -26,6 +26,7 @@ Node * readATree(char tree[],int *i);
 
 bool verificaIdenticos(Node * root1, Node* root2);
 
+int kmenor(Node * root,int k, int *contador);
 
 
 #endif

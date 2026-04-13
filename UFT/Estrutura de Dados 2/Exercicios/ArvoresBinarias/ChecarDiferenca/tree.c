@@ -72,3 +72,31 @@
 
 
     }
+
+
+    int kmenor(Node * root,int k, int *contador){
+
+        if (root == NULL)
+        {
+            return -1;
+        }
+        
+        int val = kmenor(root->left,k,contador);
+
+        if (*contador >= k)
+        {
+            return val;
+        }
+        
+        (*contador)++;
+
+        if (*contador == k)
+        {
+            return root->key;
+        }
+        
+        return kmenor(root->right,k,contador);
+
+
+
+    }
