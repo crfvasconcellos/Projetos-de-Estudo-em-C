@@ -15,5 +15,6 @@ Node * Node_create(int val);
 Node * read_ATree(char tree[],int *i);
 
 void printTree_preOrder(Node * root);
+void printTree_inOrder(Node * root);
 
 #endif

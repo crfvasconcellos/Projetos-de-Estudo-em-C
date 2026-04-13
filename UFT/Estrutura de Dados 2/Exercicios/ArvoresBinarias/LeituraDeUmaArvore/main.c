@@ -14,6 +14,8 @@ int main(){
     printf("PREORDER: ");
     printTree_preOrder(root);
 
+    printf("\nINORDER: ");
+    printTree_inOrder(root);
 
 
 }

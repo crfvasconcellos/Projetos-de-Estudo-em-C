@@ -69,3 +69,11 @@ void printTree_preOrder(Node * root){
 
 }
 
+void printTree_inOrder(Node * root){
+
+    printTree_inOrder(root->left);
+    printf(" %d,",root->key);
+    printTree_inOrder(root->right);
+    
+
+}
