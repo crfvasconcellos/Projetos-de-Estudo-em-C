@@ -53,43 +53,23 @@ Node * read_ATree(char tree[],int *i){
 
 void printTree_preOrder(Node * root){
 
+    if (root == NULL)
+        return;
+
     printf(" %d,",root->key);
 
-    if (root->left != NULL)
-    {
-        printTree_preOrder(root->left);
-    }
-    
-    if (root->right != NULL)
-    {
-        printTree_preOrder(root->right);
-    }
-    
+    printTree_preOrder(root->left);
+    printTree_preOrder(root->right);
 
 
 }
 
 void printTree_inOrder(Node * root){
 
-    if (root->left != NULL)
-    {
-        printTree_inOrder(root->left);
-        printf(" %d,",root->key);
-        printTree_inOrder(root->right);
-    }
-    
-    if (root->left == NULL && root->right != NULL)
-    {
-        printf(" %d,",root->key);
-        printTree_inOrder(root->right);
-    }
-    
-    if (root->left == NULL && root->right == NULL)
-    {
-       printf(" %d,",root->key); 
-    }
-    
-    
-    
+    if (root == NULL)
+        return;
 
+    printTree_inOrder(root->left);
+    printf(" %d,",root->key);
+    printTree_inOrder(root->right);
 }
