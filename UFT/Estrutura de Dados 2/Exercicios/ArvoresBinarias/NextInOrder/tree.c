@@ -60,24 +60,22 @@ void printTree_inOrder(Node * root){
     printTree_inOrder(root->right);
 }
 
-int SucessorInOrder(Node * root,int num){
-
+Node* SucessorInOrder(Node * root,int num){
 
     if (root == NULL)
     {
         return NULL;
     }
     
-    if (SucessorInOrder(root->left,num) == num)
+    if (root->key < num)
     {
-        return SucessorInOrder(root)
+        
     }
     
-    
-    
-    
-    
-
+    if (root->key >= )
+    {
+        /* code */
+    }
     
 
 
