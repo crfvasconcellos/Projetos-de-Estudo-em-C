@@ -12,7 +12,9 @@ typedef struct _node{
 }Node;
 
 Node * Node_create(int val);
+Node * read_ATree(char tree[],int *i);
 
 void printTree_inOrder(Node * root);
+Node * SucessorInOrder(Node * root,Node * target, Node* sucessor);
 
 #endif

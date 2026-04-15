@@ -60,24 +60,32 @@ void printTree_inOrder(Node * root){
     printTree_inOrder(root->right);
 }
 
-Node* SucessorInOrder(Node * root,int num){
-
-    if (root == NULL)
-    {
-        return NULL;
+Node* SucessorInOrder(Node* root, Node* target, Node* sucessor) {
+    // 1. Proteção básica: se a raiz é nula ou o alvo é nulo
+    if (root == NULL || target == NULL) {
+        return sucessor;
     }
-    
-    if (root->key < num)
-    {
-        
+
+    if (target->key < root->key) {
+        // Se o alvo é menor, o 'root' atual é um candidato a sucessor
+        // (ele está à direita do alvo no percurso in-order)
+        return SucessorInOrder(root->left, target, root);
     }
-    
-    if (root->key >= )
-    {
-        /* code */
+    else if (target->key > root->key) {
+        // Se o alvo é maior, o sucessor continua sendo o que veio de cima
+        return SucessorInOrder(root->right, target, sucessor);
     }
-    
-
-
-
+    else {
+        // 2. Achamos o nó alvo!
+        // Se ele tem subárvore direita, o sucessor é o valor mais à esquerda dela
+        if (root->right != NULL) {
+            Node* temp = root->right;
+            while (temp && temp->left != NULL) {
+                temp = temp->left;
+            }
+            return temp;
+        }
+        // Se não tem subárvore direita, o sucessor é o ancestral que guardamos
+        return sucessor;
+    }
 }
