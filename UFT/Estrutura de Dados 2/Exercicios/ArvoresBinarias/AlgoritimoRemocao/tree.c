@@ -28,6 +28,25 @@ int maxNode(int node1, int node2){
 }
 
 
+Node * MinValueNode(Node * root){
+
+    if (root == NULL)
+    {
+        return NULL;
+    }
+
+    if (root->left != NULL)
+    {
+        return MinValueNode(root->left);
+    }
+
+
+    return root;
+
+
+}
+
+
 Node * rotationLeft (Node * x){
     Node * y = x->right;
     Node * b = y->left;
@@ -131,3 +150,88 @@ Node * Tree_Insert(Node* root, int val){
 
 
 }
+
+    Node * Tree_Delete(Node * root, int val){
+
+        if (root == NULL)
+        {
+            return root;
+        }
+        
+
+        if (val < root->key)
+        {
+            root->left = Tree_Delete(root->left,val);
+        }
+        else if (val > root->key)
+        {
+            root->right = Tree_Delete(root->right,val);
+        }
+        else{
+            if (root->left == NULL || root->right == NULL)
+            {
+                Node* temp = root->left ? root->left : root->right;
+
+                if (temp == NULL)
+                {
+                    temp = root;
+                    root = NULL;
+                }
+                else{
+                    *root = *temp;
+                }
+
+                free(temp);
+
+
+            }
+            else{
+                
+                Node * temp = MinValueNode(root->right);
+
+                root->key = temp->key;
+
+                root->right = Tree_Delete(root->right,temp->key);
+
+            }
+
+
+        }
+
+        if (root == NULL)
+        {
+            return root;
+        }
+        
+
+        root->height = 1 + maxNode(heightNode(root->left),heightNode(root->right));
+
+
+        int balance = getBalance(root);
+
+        if (balance > 1 && getBalance(root->left) >= 0)
+        {
+            return rotationRight(root);
+        }
+        
+        if (balance < -1 && getBalance(root->right) <=0)
+        {
+            return rotationLeft(root);
+        }
+        
+
+        if (balance > 1 && getBalance(root->left) < 0)
+        {
+            root->left = rotationLeft(root->left);
+            return rotationRight(root);
+        }
+        
+        if (balance < -1 && getBalance(root->right) > 0 )
+        {
+            root->right = rotationRight(root->right);
+            return rotationLeft(root);
+        }
+        
+        return root;
+
+    }
