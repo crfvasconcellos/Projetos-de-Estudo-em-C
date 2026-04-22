@@ -111,7 +111,29 @@ Node * Balancear(Node * root){
 
 Node * Tree_Insert(Node * root, int val){
     
+    if (root == NULL)
+    {
+        return Node_create(val);
+    }
+    else{
+
+        if (val < root->val)
+        {
+            root->left = Tree_Insert(root->left,val);
+        }
+        else if (val > root->val)
+        {
+            root->right = Tree_Insert(root->right,val);
+        }
     
 
+    }
+    
+    root->high = maior(altura(root->right),altura(root->left)) + 1;
+
+    root = Balancear(root);
+
+    return root;
 
 }
+
