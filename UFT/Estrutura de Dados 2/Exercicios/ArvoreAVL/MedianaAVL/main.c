@@ -26,7 +26,12 @@ int main(){
 
     int ig = iguais(rootmedian, rootAvl);
 
-    printf("%d\n", ig);
+    printf("=== Arvore Mediana ===\n");
+    printTree(rootmedian, 0);
+    printf("\n=== Arvore AVL ===\n");
+    printTree(rootAvl, 0);
+
+    printf("\n%d\n", ig);
 
     return 0;
 }

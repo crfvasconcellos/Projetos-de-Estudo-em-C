@@ -7,7 +7,7 @@
 
 typedef struct _node
 {
-    double key;
+    int key;
     int high;
     struct _node * left;
     struct _node * right;
