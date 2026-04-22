@@ -137,3 +137,71 @@ Node * Tree_Insert(Node * root, int val){
 
 }
 
+Node * Tree_Delete(Node * root, int val){
+
+    if (root == NULL)
+    {
+        return NULL;
+    }
+    
+    if (root->val == val)
+    {
+
+        if (root->left == NULL && root->right == NULL) // Nó Folha
+        {
+            free(root);
+            return NULL;
+        }
+        else if (root->left != NULL && root->right !=NULL) //2 filhos
+        {
+            Node * aux = root->left;
+
+            while (aux->right != NULL)
+            {
+                aux = aux->right;
+            }
+            
+            root->val = aux->val;
+            root->left = Tree_Delete(root->left,val);
+            
+        }
+        else{ //1 filho
+            Node * aux;
+            if (root->left != NULL)
+            {
+                aux = root->left;
+            }
+            else{
+                aux = root->right;
+            }
+
+            free(root);
+            return aux;
+            
+        }
+
+        
+    }
+    else{
+
+        if (val < root->val)
+        {
+            root->left = Tree_Delete(root->left,val);
+        }
+        else{
+            root->right = Tree_Delete(root->right,val);
+        }
+
+    }
+
+    //Deleção Feita
+
+    //Balanceamento e atualização da altura ---
+
+    root->high = maior(altura(root->left),altura(root->right)) + 1;
+    
+    root =  Balancear(root);
+
+    return root;
+
+}
