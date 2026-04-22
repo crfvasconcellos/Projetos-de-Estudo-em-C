@@ -28,7 +28,7 @@ int altura(Node * node){
 }
 
 
-int balanceamento(Node * root){
+int FatorDeBalanceamento(Node * root){
     if (root == NULL)
     {
         return 0;
@@ -63,5 +63,55 @@ Node * rotationRight(Node * r){
     y->high = maior(altura(r->left), altura(r->right)) + 1;
 
     return y;
+
+}
+
+Node * rotationRLeft(Node * r){
+
+    r->right = rotationRight(r->right);
+    return rotationLeft(r);
+
+
+}
+
+Node * rotationLRight(Node * r){
+
+    r->left = rotationLeft(r->left);
+    return rotationLRight(r);
+
+}
+
+Node * Balancear(Node * root){
+    int fb = FatorDeBalanceamento(root);
+
+    if (fb  < -1 && FatorDeBalanceamento(root->right) <= 0)
+    {
+        return rotationLeft(root);
+    }
+    
+    if (fb > 1 && FatorDeBalanceamento(root->left) >= 0)
+    {
+        return rotationRight(root);
+    }
+    
+    if (fb > 1 && FatorDeBalanceamento(root->left) < 0)
+    {
+        return rotationLRight(root);
+    }
+
+    if (fb < -1 && FatorDeBalanceamento(root->right) > 0)
+    {
+        return rotationRLeft(root);
+    }
+    
+    
+    return root;
+    
+}
+
+Node * Tree_Insert(Node * root, int val){
+    
+    
+
 
 }

@@ -16,7 +16,7 @@ typedef struct _node
 
 
 Node * Node_create(int val);
-
+Node * Tree_Insert(Node * root, int val);
 
 
 #endif
